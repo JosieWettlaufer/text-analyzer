@@ -28,12 +28,10 @@ function App() {
         //Cleans text for processing
 
         //Convert text submission to lower case
-        const lowerText = text.toLocaleLowerCase();
-        
+        const lowerText = text.toLocaleLowerCase(); 
         //Replace punctuation with spaces and split into words 
         //[^\w\s] = not letter/number/white space, /g = ensures all matching chars replaced with ''
         const words = lowerText.replace(/[^\w\s]/g, '');
-
         //splits array at every ' '
         const cleanedText = words.split(' ');
 
@@ -43,8 +41,10 @@ function App() {
         //loop through word array and count frequency of each word
         cleanedText.forEach(word => {
           if (word) { //skip empty strings
+            //Sets count to one for first instance of the word
             if(!wordFrequency[word]) {
               wordFrequency[word] = 1;
+            //increments count for existing words
             } else {
               wordFrequency[word] += 1;
             }
